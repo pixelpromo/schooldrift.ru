@@ -42,6 +42,12 @@ import { nav, site, contacts, asset } from '../config';
 
     <div class="footer-bottom">
       <span>© {new Date().getFullYear()} {site.name}. Все права защищены.</span>
+      <span class="dev-copy">
+        <a href="https://pixelplus.ru/" target="pixelplus" aria-label="Создание сайта — компания «Пиксель Плюс»">
+          <img src={asset('/images/pixelplus-logo.png')} alt="Пиксель Плюс" />
+        </a>
+        <a href="https://pixelplus.ru/" target="pixelplus">Создание сайта</a> — компания «<a href="https://pixelplus.ru/" target="pixelplus">Пиксель Плюс</a>»
+      </span>
       <span>{site.addressShort}</span>
     </div>
   </div>

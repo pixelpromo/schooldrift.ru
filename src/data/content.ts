@@ -108,7 +108,7 @@ export const achievements: Achievement[] = [
   { text: 'Основатель RDS — Российской Дрифт Серии' },
   { text: 'Один из трёх российских пилотов с лицензией D1GP (Япония)' },
   { text: 'Участник мирового турнира D1 World Cup' },
-  { text: 'Организатор и судья Drift Games', href: 'https://driftgames.ru/' },
+  { text: 'Организатор и судья Drift Game\'s Pro Am', href: 'https://driftgames.ru/' },
   { text: 'Руководитель серии RDS Asia' },
   { text: 'Один из самых востребованных судей по дрифту' },
   { text: 'Более 20 лет в дрифте' },

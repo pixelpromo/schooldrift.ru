@@ -99,6 +99,13 @@ export const students: Student[] = [
       'Участник чемпионатов RDS GP и RDS Europe',
     ],
   },
+  {
+    name: 'Тарас Приходько',
+    achievements: [
+      'Победитель этапа Drift Games Pro Am (2026)',
+      'Бронзовый призёр сезона Drift Games Pro Am (2026)',
+    ],
+  },
 ];
 
 export type Achievement = { text: string; href?: string };
@@ -118,7 +125,7 @@ export const stats = [
   { value: '20+', label: 'лет в дрифте' },
   { value: '1 из 3', label: 'пилотов РФ с лицензией D1GP Японии' },
   { value: 'RDS', label: 'основатель Российской Дрифт Серии' },
-  { value: '5', label: 'учеников — чемпионы и призёры RDS' },
+  { value: '6', label: 'учеников — чемпионы и призёры' },
 ];
 
 export type TimelineItem = { year: string; title: string; text: string };

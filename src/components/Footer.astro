@@ -39,7 +39,7 @@ import { nav, site, contacts, asset } from '../config';
         <ul>
           {contacts.map((c) => (
             <li>
-              <a href={c.href} rel={c.href.startsWith('http') ? 'noopener' : undefined}>
+              <a href={c.href} rel={c.href.startsWith('http') ? 'noopener' : undefined} data-tel={c.href === '#'}>
                 {c.label}: {c.value}
               </a>
             </li>

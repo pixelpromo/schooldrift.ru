@@ -49,7 +49,7 @@ export const nav: NavItem[] = [
 
 // Соцсети/мессенджеры для футера и блока контактов
 export const contacts = [
-  { label: 'Телефон', value: site.phoneDisplay, href: site.phoneHref, icon: 'phone' },
+  { label: 'Телефон', value: 'Позвонить', href: '#', icon: 'phone' },
   { label: 'Telegram', value: site.telegramHandle, href: site.telegram, icon: 'telegram' },
   { label: 'WhatsApp', value: site.whatsappDisplay, href: site.whatsapp, icon: 'whatsapp' },
   { label: 'Instagram', value: site.instagramHandle, href: site.instagram, icon: 'instagram' },

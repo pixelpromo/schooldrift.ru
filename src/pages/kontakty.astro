@@ -6,7 +6,7 @@ import { track } from '../data/content';
 const mapUrl = 'https://yandex.ru/maps/?text=' + encodeURIComponent('СТК Пилот, Усть-Лабинск');
 
 const items = [
-  { label: 'Телефон', value: site.phoneDisplay, note: 'Дмитрий — запись на уроки', href: site.phoneHref, icon: 'phone' },
+  { label: 'Телефон', value: 'Позвонить', note: 'Дмитрий — запись на уроки', href: '#', icon: 'phone' },
   { label: 'Telegram', value: site.telegramHandle, note: 'Быстрый ответ', href: site.telegram, icon: 'telegram' },
   { label: 'WhatsApp', value: site.whatsappDisplay, note: 'Написать', href: site.whatsapp, icon: 'whatsapp' },
   { label: 'Instagram', value: site.instagramHandle, note: 'Школа в соцсетях', href: site.instagram, icon: 'instagram' },
@@ -35,7 +35,7 @@ const jsonLd = {
 
 <BaseLayout
   title="Контакты школы дрифта — запись на обучение | Краснодарский край"
-  description="Запись на обучение дрифту: телефон +7 914 706-07-11, Telegram @semeniukd, WhatsApp. Трасса СТК «Пилот» в Усть-Лабинске, Краснодарский край."
+  description="Запись на обучение дрифту: по телефону, в Telegram @semeniukd или WhatsApp. Трасса СТК «Пилот» в Усть-Лабинске, Краснодарский край."
   image="/images/team-2.jpg"
   jsonLd={jsonLd}
 >
@@ -54,7 +54,7 @@ const jsonLd = {
     <div class="container">
       <div class="grid-3">
         {items.map((it) => (
-          <a class="card contact-card reveal" href={it.href} target={it.href.startsWith('http') ? '_blank' : undefined} rel={it.href.startsWith('http') ? 'noopener' : undefined}>
+          <a class="card contact-card reveal" href={it.href} target={it.href.startsWith('http') ? '_blank' : undefined} rel={it.href.startsWith('http') ? 'noopener' : undefined} data-tel={it.href === '#'}>
             <div class="card__icon" aria-hidden="true">
               {it.icon === 'phone' && (
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>

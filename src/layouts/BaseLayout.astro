@@ -133,6 +133,12 @@ const pageLd = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
     <Footer />
 
     <script>
+      // Маскировка телефона: подставляем tel: из разбитых частей (защита от парсинга)
+      const phone = ['+7', '914', '706', '07', '11'].join('');
+      document.querySelectorAll('[data-tel]').forEach((el) => {
+        el.setAttribute('href', 'tel:' + phone);
+      });
+
       // Состояние шапки при скролле
       const header = document.querySelector<HTMLElement>('.site-header');
       const onScroll = () => {

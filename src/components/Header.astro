@@ -1,11 +1,11 @@
 ---
-import { nav, site } from '../config';
+import { nav, site, asset } from '../config';
 const pathname = Astro.url.pathname;
 ---
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="/" class="brand" aria-label="Semeniuk Drift School — на главную">
+    <a href={asset('/')} class="brand" aria-label="Semeniuk Drift School — на главную">
       <span class="brand-mark" aria-hidden="true">
         <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
           <path d="M5 5h9l-2.4 8.5H19L16.6 22l9-17h-9l2.4-8.5H8L5 5z" fill="var(--red)" />
@@ -20,9 +20,9 @@ const pathname = Astro.url.pathname;
 
     <nav class="nav" aria-label="Основная навигация">
       {nav.map((item) => {
-        const active = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
+        const active = item.href === '/' ? pathname === asset('/') : pathname.startsWith(asset(item.href));
         return (
-          <a href={item.href} aria-current={active ? 'page' : undefined}>
+          <a href={asset(item.href)} aria-current={active ? 'page' : undefined}>
             {item.label}
           </a>
         );

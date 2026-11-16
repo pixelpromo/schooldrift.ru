@@ -1,12 +1,12 @@
 ---
-import { nav, site, contacts } from '../config';
+import { nav, site, contacts, asset } from '../config';
 ---
 
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="/" class="brand">
+        <a href={asset('/')} class="brand">
           <span class="brand-mark" aria-hidden="true">
             <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
               <path d="M5 5h9l-2.4 8.5H19L16.6 22l9-17h-9l2.4-8.5H8L5 5z" fill="var(--red)" />
@@ -28,7 +28,7 @@ import { nav, site, contacts } from '../config';
         <ul>
           {nav.slice(1).map((item) => (
             <li>
-              <a href={item.href}>{item.label}</a>
+              <a href={asset(item.href)}>{item.label}</a>
             </li>
           ))}
         </ul>

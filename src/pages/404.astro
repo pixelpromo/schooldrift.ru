@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { site } from '../config';
+import { site, asset } from '../config';
 ---
 
 <BaseLayout title="Страница не найдена — Semeniuk Drift School" noindex>
@@ -11,7 +11,7 @@ import { site } from '../config';
       <p class="muted" style="max-width: 44ch; margin: 0 auto 1.8rem;">
         Возможно, страница была перемещена или удалена. Вернитесь на главную и продолжите.
       </p>
-      <a class="btn" href="/">На главную</a>
+      <a class="btn" href={asset('/')}>На главную</a>
     </div>
   </section>
 </BaseLayout>

@@ -216,6 +216,7 @@ export const marqueeWords = [
   'Без ручника',
   'RDS',
   'D1GP',
+  'DRIFT GAMES PRO AM',
   'Постановка',
   'Перекладки',
   'Дальневосточный флай',

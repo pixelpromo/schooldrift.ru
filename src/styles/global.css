@@ -303,7 +303,7 @@ strong {
 }
 
 .brand img {
-  height: 56px;
+  height: 48px;
   width: auto;
 }
 
@@ -377,7 +377,8 @@ strong {
 /* ------------------------------ Hero ------------------------------------ */
 .hero {
   position: relative;
-  min-height: 92vh;
+  min-height: calc(100vh - 74px);
+  min-height: calc(100svh - 74px);
   display: flex;
   align-items: center;
   padding-top: clamp(3rem, 8vw, 6rem);

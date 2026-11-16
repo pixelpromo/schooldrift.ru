@@ -1,6 +1,15 @@
 // Единый источник данных о сайте и контактах школы.
 // Меняйте значения здесь — они подхватятся на всех страницах.
 
+// Базовый путь и origin берутся из окружения сборки (нужно для GitHub Pages).
+const env = import.meta.env as Record<string, string | undefined>;
+export const BASE: string = env.BASE_URL || '/';
+export const ORIGIN: string = env.SITE || 'https://schooldrift.ru';
+// Путь к файлу с учётом base (для src/href в HTML).
+export const asset = (p: string): string => `${BASE}${p.replace(/^\//, '')}`;
+// Абсолютный URL с учётом base (для canonical, og:image, JSON-LD).
+export const absolute = (p = '/'): string => `${ORIGIN}${asset(p)}`;
+
 export const site = {
   name: 'Semeniuk Drift School',
   shortName: 'Semeniuk DS',

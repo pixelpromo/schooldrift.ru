@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABanner from '../components/CTABanner.astro';
-import { site } from '../config';
+import { site, absolute } from '../config';
 import { students } from '../data/content';
 
 const jsonLd = {
@@ -15,7 +15,7 @@ const jsonLd = {
       '@type': 'Person',
       name: s.name,
       description: s.achievements.join('. '),
-      alumniOf: { '@id': `${site.url}/#organization` },
+      alumniOf: { '@id': `${absolute('/')}#organization` },
     },
   })),
 };

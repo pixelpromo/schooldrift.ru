@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Marquee from '../components/Marquee.astro';
 import CTABanner from '../components/CTABanner.astro';
-import { site } from '../config';
+import { site, asset, absolute } from '../config';
 import { stats, achievements, methodology, cars, track, students, prices, faq } from '../data/content';
 
 const jsonLd = {
@@ -10,7 +10,7 @@ const jsonLd = {
   '@type': 'Course',
   name: 'Обучение дрифту в школе Дмитрия Семенюка',
   description: site.description,
-  provider: { '@id': `${site.url}/#organization` },
+  provider: { '@id': `${absolute('/')}#organization` },
   hasCourseInstance: {
     '@type': 'CourseInstance',
     courseMode: 'Onsite',
@@ -38,7 +38,7 @@ const jsonLd = {
   <section class="hero">
     <div class="hero__media">
       <img
-        src="/images/drift-g.jpg"
+        src={asset('/images/drift-g.jpg')}
         alt="Дрифт на гоночной трассе — школа дрифта Дмитрия Семенюка"
         width="1680"
         height="1120"
@@ -88,7 +88,7 @@ const jsonLd = {
     <div class="container split">
       <div class="split__media reveal">
         <img
-          src="/images/drift-a.jpg"
+          src={asset('/images/drift-a.jpg')}
           alt="Дмитрий Семенюк — дрифт без ручника"
           width="1400"
           height="933"
@@ -157,7 +157,7 @@ const jsonLd = {
         {cars.map((c, i) => (
           <div class="media-card reveal">
             <img
-              src={i === 0 ? '/images/drift-b.jpg' : '/images/drift-c.jpg'}
+              src={i === 0 ? asset('/images/drift-b.jpg') : asset('/images/drift-c.jpg')}
               alt={`${c.name} — ${c.power}`}
               width="1400"
               height="933"

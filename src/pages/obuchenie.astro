@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABanner from '../components/CTABanner.astro';
-import { site } from '../config';
+import { site, asset, absolute } from '../config';
 import { methodology, cars, track } from '../data/content';
 
 const steps = [
@@ -28,11 +28,11 @@ const jsonLd = {
   '@type': 'Course',
   name: 'Обучение дрифту без ручника — методика Дмитрия Семенюка',
   description: 'Авторская методика постановки и перекладок без ручного тормоза от основателя RDS Дмитрия Семенюка.',
-  provider: { '@id': `${site.url}/#organization` },
+  provider: { '@id': `${absolute('/')}#organization` },
   hasCourseInstance: {
     '@type': 'CourseInstance',
     courseMode: 'Onsite',
-    instructor: { '@id': `${site.url}/#person` },
+    instructor: { '@id': `${absolute('/')}#person` },
     location: {
       '@type': 'Place',
       name: track.name,
@@ -125,7 +125,7 @@ const jsonLd = {
       </div>
       <div class="split__media reveal">
         <img
-          src="/images/drift-d.jpg"
+          src={asset('/images/drift-d.jpg')}
           alt="Гоночный автомобиль Toyota Mark II на трассе"
           width="1280"
           height="854"

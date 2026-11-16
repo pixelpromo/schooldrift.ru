@@ -1,16 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABanner from '../components/CTABanner.astro';
-import { site } from '../config';
+import { site, asset, absolute } from '../config';
 import { achievements, stats, methodology, timeline } from '../data/content';
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  '@id': `${site.url}/#person`,
+  '@id': `${absolute('/')}#person`,
   name: 'Дмитрий Семенюк',
-  url: new URL('/dmitrij-semenyuk/', site.url).toString(),
-  image: new URL('/images/dmitry2.png', site.url).toString(),
+  url: absolute('/dmitrij-semenyuk/'),
+  image: absolute('/images/dmitry2.png'),
   jobTitle: 'Основатель школы дрифта, пилот, судья',
   description:
     'Легенда российского дрифта, основатель RDS, один из трёх российских пилотов с лицензией D1GP Японии, участник D1 World Cup.',
@@ -20,7 +20,7 @@ const jsonLd = {
     site.instagram,
     'https://www.instagram.com/dmitri_semeniuk/',
   ],
-  worksFor: { '@id': `${site.url}/#organization` },
+  worksFor: { '@id': `${absolute('/')}#organization` },
 };
 ---
 
@@ -44,7 +44,7 @@ const jsonLd = {
   <section class="section">
     <div class="container split">
       <div class="reveal">
-        <img class="avatar" src="/images/dmitry2.png" alt="Дмитрий Семенюк" width="68" height="68" style="margin-bottom: 1.2rem;" />
+        <img class="avatar" src={asset('/images/dmitry2.png')} alt="Дмитрий Семенюк" width="68" height="68" style="margin-bottom: 1.2rem;" />
         <h2>Более 20 лет в дрифте</h2>
         <p style="margin-top: 1rem;">
           Дмитрий Семенюк более 20 лет в дрифте. За это время он основал уникальный турнир —
@@ -64,7 +64,7 @@ const jsonLd = {
       </div>
       <div class="split__media reveal">
         <img
-          src="/images/team-1.jpg"
+          src={asset('/images/team-1.jpg')}
           alt="Дмитрий Семенюк и команда на гоночной трассе"
           width="1680"
           height="1117"

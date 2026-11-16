@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { site, contacts } from '../config';
+import { site, contacts, asset, absolute } from '../config';
 import { track } from '../data/content';
 
 const mapUrl = 'https://yandex.ru/maps/?text=' + encodeURIComponent('СТК Пилот, Усть-Лабинск');
@@ -16,9 +16,9 @@ const items = [
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': ['LocalBusiness', 'EducationalOrganization'],
-  '@id': `${site.url}/#organization`,
+  '@id': `${absolute('/')}#organization`,
   name: site.name,
-  url: site.url,
+  url: absolute('/'),
   telephone: site.phoneDisplay,
   email: site.email,
   priceRange: '₽₽₽',
@@ -101,7 +101,7 @@ const jsonLd = {
       </div>
       <div class="split__media reveal">
         <img
-          src="/images/team-3.jpg"
+          src={asset('/images/team-3.jpg')}
           alt="Трасса СТК «Пилот» — дрифт-тренировки"
           width="1680"
           height="1117"

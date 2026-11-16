@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { faq } from '../data/content';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<BaseLayout
+  title="Вопросы и ответы — школа дрифта Дмитрия Семенюка"
+  description="Ответы на частые вопросы об обучении дрифту: стоимость, нужна ли своя машина, где проходят тренировки, чем методика Дмитрия Семенюка отличается от других."
+  image="/images/drift-b.jpg"
+  jsonLd={jsonLd}
+>
+  <section class="page-head">
+    <div class="container">
+      <span class="kicker">FAQ</span>
+      <h1>Частые вопросы об обучении дрифту</h1>
+      <p class="lead">
+        Собрали ответы на самые популярные вопросы. Не нашли свой — напишите или позвоните, поможем.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="faq-list">
+        {faq.map((f) => (
+          <details class="faq-item reveal">
+            <summary>{f.q}</summary>
+            <div class="faq-a">{f.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CTABanner title="Остались вопросы?" text="Напишите в Telegram или WhatsApp — Дмитрий лично проконсультирует по программе, стоимости и записи." />
+    </div>
+  </section>
+</BaseLayout>

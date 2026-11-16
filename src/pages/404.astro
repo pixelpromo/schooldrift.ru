@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../config';
+---
+
+<BaseLayout title="Страница не найдена — Semeniuk Drift School" noindex>
+  <section class="section" style="min-height: 60vh; display: grid; place-items: center; text-align: center;">
+    <div class="container">
+      <div class="stat__value" style="font-family: var(--font-display); font-size: clamp(3rem, 10vw, 6rem); font-weight: 800; background: var(--grad-accent); -webkit-background-clip: text; background-clip: text; color: transparent;">404</div>
+      <h1 style="margin: 1rem 0;">Страница не найдена</h1>
+      <p class="muted" style="max-width: 44ch; margin: 0 auto 1.8rem;">
+        Возможно, страница была перемещена или удалена. Вернитесь на главную и продолжите.
+      </p>
+      <a class="btn" href="/">На главную</a>
+    </div>
+  </section>
+</BaseLayout>

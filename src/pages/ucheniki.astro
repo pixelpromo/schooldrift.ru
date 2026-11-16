@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { site } from '../config';
+import { students } from '../data/content';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Ученики школы дрифта Дмитрия Семенюка',
+  itemListElement: students.map((s, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Person',
+      name: s.name,
+      description: s.achievements.join('. '),
+      alumniOf: { '@id': `${site.url}/#organization` },
+    },
+  })),
+};
+---
+
+<BaseLayout
+  title="Ученики школы дрифта Дмитрия Семенюка — чемпионы RDS"
+  description="Выпускники школы дрифта Дмитрия Семенюка: чемпионы RDS Asia, Winter Drift Games и призёры RDS GP и RDS Europe. Результаты учеников Semeniuk Drift School."
+  image="/images/drift-a.jpg"
+  jsonLd={jsonLd}
+>
+  <section class="page-head">
+    <div class="container">
+      <span class="kicker">Результаты</span>
+      <h1>Чемпионы среди наших учеников</h1>
+      <p class="lead">
+        Методика Дмитрия Семенюка ежегодно выпускает чемпионов и призёров российских и
+        международных дрифт-серий.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid-3">
+        {students.map((st, i) => (
+          <div class="card student-card reveal">
+            <div class="student-card__num">0{i + 1}</div>
+            <h3>{st.name}</h3>
+            <ul>
+              {st.achievements.map((a) => (
+                <li>{a}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <div class="card reveal" style="margin-top: 2rem; text-align: center;">
+        <h3>Ваш результат — следующий</h3>
+        <p style="margin: 0.6rem auto 1.4rem; max-width: 56ch;">
+          Присоединяйтесь к ученикам школы дрифта Дмитрия Семенюка и освойте технику, которая
+          приводит к подиумам RDS.
+        </p>
+        <a class="btn" href={site.telegram} target="_blank" rel="noopener">Начать обучение</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CTABanner />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { site } from '../config';
+import { methodology, cars, track } from '../data/content';
+
+const steps = [
+  {
+    title: 'Брифинг и разбор техники',
+    text: 'Тренер объясняет базовую технику постановки и перекладок без ручного тормоза — основу дальневосточного стиля.',
+  },
+  {
+    title: 'Посадка и настройка',
+    text: 'Правильная посадка, настройка под себя и понимание работы гоночного автомобиля перед выездом на трассу.',
+  },
+  {
+    title: 'Работа на трассе',
+    text: 'Отработка постановки, контроль заноса и перекладки на гоночной трассе СТК «Пилот» под контролем тренера.',
+  },
+  {
+    title: 'Разбор и прогресс',
+    text: 'Тренер разбирает ошибки, фиксирует прогресс и ставит задачи на следующее занятие.',
+  },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: 'Обучение дрифту без ручника — методика Дмитрия Семенюка',
+  description: 'Авторская методика постановки и перекладок без ручного тормоза от основателя RDS Дмитрия Семенюка.',
+  provider: { '@id': `${site.url}/#organization` },
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'Onsite',
+    instructor: { '@id': `${site.url}/#person` },
+    location: {
+      '@type': 'Place',
+      name: track.name,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Усть-Лабинск',
+        addressRegion: 'Краснодарский край',
+        addressCountry: 'RU',
+      },
+    },
+  },
+};
+---
+
+<BaseLayout
+  title="Обучение дрифту без ручника — методика Дмитрия Семенюка"
+  description="Как проходит обучение дрифту в школе Дмитрия Семенюка: методика постановки и перекладок без ручника, гоночные Toyota Mark II, трасса СТК «Пилот» в Краснодарском крае. От нуля до парного дрифта."
+  image="/images/drift-c.jpg"
+  jsonLd={jsonLd}
+>
+  <section class="page-head">
+    <div class="container">
+      <span class="kicker">Обучение</span>
+      <h1>Обучение дрифту без ручного тормоза</h1>
+      <p class="lead">
+        {methodology.intro}
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">Результат</span>
+        <h2>Чему вы научитесь</h2>
+      </div>
+      <div class="grid-3">
+        {methodology.skills.map((s, i) => (
+          <div class="card reveal">
+            <div class="card__icon" aria-hidden="true">{String(i + 1).padStart(2, '0')}</div>
+            <h3>{s.split('—')[0].trim()}</h3>
+            <p>{s}</p>
+          </div>
+        ))}
+      </div>
+      <div class="card reveal" style="margin-top: 1.4rem; border-color: rgba(0,224,255,0.3);">
+        <div class="card__icon" aria-hidden="true">04</div>
+        <h3>Продвинутый уровень</h3>
+        <p>{methodology.advanced}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--bg-2); border-block: 1px solid var(--line);">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">Процесс</span>
+        <h2>Как проходит занятие</h2>
+      </div>
+      <div class="grid-2">
+        {steps.map((st, i) => (
+          <div class="card reveal">
+            <div class="card__icon" aria-hidden="true">0{i + 1}</div>
+            <h3>{st.title}</h3>
+            <p>{st.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div class="reveal">
+        <span class="kicker">Автопарк</span>
+        <h2>Гоночные автомобили школы</h2>
+        <ul class="check-list">
+          {cars.map((c) => (
+            <li>
+              <strong>{c.name}</strong>&nbsp;— {c.power}
+            </li>
+          ))}
+          <li>Резина, бензин и аренда площадки уже включены в стоимость</li>
+          <li>Трасса: {track.name}, г. {track.city} ({track.region})</li>
+          <li>На территории трассы: {track.amenities.join(', ')}</li>
+        </ul>
+        <div style="margin-top: 1.8rem;">
+          <a class="btn" href="/ceny/">Смотреть цены</a>
+        </div>
+      </div>
+      <div class="split__media reveal">
+        <img
+          src="/images/drift-d.jpg"
+          alt="Гоночный автомобиль Toyota Mark II на трассе"
+          width="1280"
+          height="854"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CTABanner />
+    </div>
+  </section>
+</BaseLayout>

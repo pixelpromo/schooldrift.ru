@@ -1,0 +1,17 @@
+{
+  "name": "semeniuk-drift-school",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Semeniuk Drift School — школа дрифта Дмитрия Семенюка (Краснодарский край)",
+  "scripts": {
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
+    "astro": "ASTRO_TELEMETRY_DISABLED=1 astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.5",
+    "astro": "^7.4.12"
+  }
+}

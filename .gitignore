@@ -1,0 +1,10 @@
+node_modules
+dist
+.npm-cache
+.cache
+.pylib
+.DS_Store
+*.log
+presentation.pdf
+.ssh-known_hosts
+.astro/

@@ -1,0 +1,14 @@
+---
+import { marqueeWords } from '../data/content';
+
+// Дублируем слова для бесшовной прокрутки
+const words = [...marqueeWords, ...marqueeWords];
+---
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    {words.map((w, i) => (
+      <span>{w}</span>
+    ))}
+  </div>
+</div>

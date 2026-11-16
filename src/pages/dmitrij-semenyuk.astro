@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { site } from '../config';
+import { achievements, stats, methodology, timeline } from '../data/content';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${site.url}/#person`,
+  name: 'Дмитрий Семенюк',
+  url: new URL('/dmitrij-semenyuk/', site.url).toString(),
+  image: new URL('/images/dmitry2.png', site.url).toString(),
+  jobTitle: 'Основатель школы дрифта, пилот, судья',
+  description:
+    'Легенда российского дрифта, основатель RDS, один из трёх российских пилотов с лицензией D1GP Японии, участник D1 World Cup.',
+  knowsAbout: ['Дрифт', 'Автоспорт', 'RDS', 'D1GP', 'Обучение вождению'],
+  sameAs: [
+    site.telegram,
+    site.instagram,
+    'https://www.instagram.com/dmitri_semeniuk/',
+  ],
+  worksFor: { '@id': `${site.url}/#organization` },
+};
+---
+
+<BaseLayout
+  title="Дмитрий Семенюк — основатель RDS, легенда российского дрифта"
+  description="Дмитрий Семенюк — основатель Российской Дрифт Серии (RDS), пилот с лицензией D1GP Японии, участник D1 World Cup. Биография, достижения и авторская методика обучения дрифту без ручника."
+  image="/images/drift-a.jpg"
+  jsonLd={jsonLd}
+>
+  <section class="page-head">
+    <div class="container">
+      <span class="kicker">О Дмитрии</span>
+      <h1>Дмитрий Семенюк</h1>
+      <p class="lead">
+        Легенда российского дрифта, основатель RDS и автор методики обучения дрифту без ручного
+        тормоза.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div class="reveal">
+        <img class="avatar" src="/images/dmitry2.png" alt="Дмитрий Семенюк" width="68" height="68" style="margin-bottom: 1.2rem;" />
+        <h2>Более 20 лет в дрифте</h2>
+        <p style="margin-top: 1rem;">
+          Дмитрий Семенюк более 20 лет в дрифте. За это время он основал уникальный турнир —
+          RDS (Российскую Дрифт Серию), который со временем превратился в крупнейшее дрифт-событие
+          во всём СНГ и по масштабу сравним с самыми популярными мировыми сериями.
+        </p>
+        <p style="margin-top: 1rem;">
+          Дмитрий — один из трёх российских пилотов, обладающих лицензией пилота D1GP Японии,
+          участник мирового турнира D1 World Cup и руководитель серии RDS Asia. Также он один из
+          самых востребованных судей по дрифту.
+        </p>
+        <p style="margin-top: 1rem;">
+          Дмитрий разработал собственную методику управления автомобилем с постановкой и
+          перекладками без ручного тормоза — уникальный дальневосточный стиль. Его ученики
+          становятся чемпионами и регулярно занимают призовые места.
+        </p>
+      </div>
+      <div class="split__media reveal">
+        <img
+          src="/images/team-1.jpg"
+          alt="Дмитрий Семенюк и команда на гоночной трассе"
+          width="1680"
+          height="1117"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--bg-2); border-block: 1px solid var(--line);">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">Достижения</span>
+        <h2>Титулы и заслуги</h2>
+      </div>
+      <div class="grid-2">
+        <ul class="achieve-list reveal">
+          {achievements.slice(0, 4).map((a) => (
+            <li>{a.href ? <a href={a.href} target="_blank" rel="noopener">{a.text}</a> : a.text}</li>
+          ))}
+        </ul>
+        <ul class="achieve-list reveal">
+          {achievements.slice(4).map((a) => (
+            <li>{a.href ? <a href={a.href} target="_blank" rel="noopener">{a.text}</a> : a.text}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">Трек-рекорд</span>
+        <h2>Хронология</h2>
+      </div>
+      <div class="timeline">
+        {timeline.map((t) => (
+          <div class="timeline-item reveal">
+            <div class="timeline-year">{t.year}</div>
+            <h3>{t.title}</h3>
+            <p>{t.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="stats reveal">
+        {stats.map((s) => (
+          <div class="stat">
+            <div class="stat__value">{s.value}</div>
+            <div class="stat__label">{s.label}</div>
+          </div>
+        ))}
+      </div>
+      <p class="muted reveal" style="margin-top: 2rem; max-width: 70ch; font-size: 1.05rem;">
+        Главная ценность школы — {methodology.style}: Дмитрий лично передаёт технику постановки и
+        перекладок без ручника, на которой выросли чемпионы RDS Asia, Winter Drift Games и призёры
+        RDS GP.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CTABanner title="Учиться у Дмитрия Семенюка" text="Запишитесь на тренировку — Дмитрий лично проведёт занятие и поможет освоить дрифт без ручника." />
+    </div>
+  </section>
+</BaseLayout>

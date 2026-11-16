@@ -41,7 +41,7 @@ export const nav: NavItem[] = [
   { label: 'Главная', href: '/' },
   { label: 'Дмитрий Семенюк', href: '/dmitrij-semenyuk/' },
   { label: 'Обучение', href: '/obuchenie/' },
-  { label: 'Цены', href: '/ceny/' },
+  { label: 'Стоимость', href: '/ceny/' },
   { label: 'Ученики', href: '/ucheniki/' },
   { label: 'FAQ', href: '/faq/' },
   { label: 'Контакты', href: '/kontakty/' },

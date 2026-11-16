@@ -7,7 +7,7 @@ import { prices, extraPrices } from '../data/content';
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'OfferCatalog',
-  name: 'Цены на обучение дрифту',
+  name: 'Стоимость обучения дрифту',
   itemListElement: prices.map((p, i) => ({
     '@type': 'Offer',
     position: i + 1,
@@ -25,7 +25,7 @@ const jsonLd = {
 ---
 
 <BaseLayout
-  title="Цены на обучение дрифту — школа дрифта Дмитрия Семенюка"
+  title="Стоимость обучения дрифту — школа дрифта Дмитрия Семенюка"
   description="Стоимость обучения дрифту: час на автомобиле школы — 45 000 ₽, на вашем автомобиле — от 10 000 ₽, курс из 8 уроков — 640 000 ₽. Трасса СТК «Пилот», Краснодарский край."
   image="/images/drift-e.jpg"
   jsonLd={jsonLd}
@@ -33,7 +33,7 @@ const jsonLd = {
   <section class="page-head">
     <div class="container">
       <span class="kicker">Стоимость</span>
-      <h1>Цены на обучение дрифту</h1>
+      <h1>Стоимость обучения дрифту</h1>
       <p class="lead">
         Выберите удобный формат: на полностью подготовленном автомобиле школы или на вашем авто.
         Резина, бензин и аренда площадки уже включены.

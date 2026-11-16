@@ -303,7 +303,7 @@ strong {
 }
 
 .brand img {
-  height: 40px;
+  height: 56px;
   width: auto;
 }
 
@@ -380,7 +380,8 @@ strong {
   min-height: 92vh;
   display: flex;
   align-items: center;
-  padding-block: clamp(3rem, 8vw, 6rem);
+  padding-top: clamp(3rem, 8vw, 6rem);
+  padding-bottom: 96px;
   overflow: hidden;
 }
 
@@ -453,15 +454,13 @@ strong {
   gap: 0.8rem;
 }
 
-/* Diagonal neon accent line under hero */
-.hero__accent {
+/* Бегущая строка по низу первого экрана */
+.hero .marquee {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 1px;
-  background: var(--grad-accent);
-  opacity: 0.5;
+  z-index: 3;
 }
 
 /* ----------------------------- Page header ------------------------------- */
